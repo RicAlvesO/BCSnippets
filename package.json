@@ -2,6 +2,24 @@
     "name": "bcs",
     "displayName": "Better C Snippets",
     "description": "Better C Snippets to optimize your workflow!",
+    "author": {
+        "name": "Ricardo O.",
+        "url": "https://github.com/RicAlvesO"
+    },
+    "icon": "images/bcs_icon.png",
+    "galleryBanner": {
+        "color": "#002ec7",
+        "theme": "dark"
+    },
+    "license": "SEE LICENSE IN LICENSE.txt",
+    "homepage": "https://github.com/RicAlvesO/BCSnippets/blob/main/README.md",
+    "repository": {
+        "type": "git",
+        "url": "https://github.com/RicAlvesO/BCSnippets.git"
+    },
+    "bugs": {
+        "url": "https://github.com/RicAlvesO/BCSnippets/issues"
+    },
     "version": "0.0.1",
     "engines": {
         "vscode": "^1.63.0"
