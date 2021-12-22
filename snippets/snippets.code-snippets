@@ -1,0 +1,17 @@
+{
+    "Base Inicialization": {
+        "prefix": "bini",
+        "body": [
+            "#include <stdlib.h>",
+            "#include <stdio.h>",
+            "",
+            "int main(){",
+            "  ",
+            "  $1",
+            "  ",
+            "  return 0;",
+            "}"
+        ],
+        "description": "Base Inicialization"
+    }
+}
