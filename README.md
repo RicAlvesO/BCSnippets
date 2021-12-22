@@ -8,6 +8,13 @@ Current Version: v.0.0.1
 
 - C
 
+## Instalation
+
+To install this extension run:
+
+- `git clone https://github.com/RicAlvesO/BCSnippets.git` 
+- `sudo ./install.sh`
+
 ## Snippets
 
 Bellow is a list of all available snippets along with a small description.
