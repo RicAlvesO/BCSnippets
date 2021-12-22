@@ -1,6 +1,6 @@
 {
-    "Base Inicialization": {
-        "prefix": "init",
+    "Base Initialisation": {
+        "prefix": "!init",
         "body": [
             "#include <stdlib.h>",
             "#include <stdio.h>",
@@ -14,10 +14,10 @@
             "  return EXIT_SUCCESS;",
             "}"
         ],
-        "description": "Base Inicialization"
+        "description": "Base Initialisation"
     },
-    "Inicialization w/ Arguments": {
-        "prefix": "arginit",
+    "Initialisation w/ Arguments": {
+        "prefix": "!arginit",
         "body": [
             "#include <stdlib.h>",
             "#include <stdio.h>",
@@ -39,10 +39,10 @@
             "  return EXIT_SUCCESS;",
             "}"
         ],
-        "description": "Inicialization w/ Arguments"
+        "description": "Initialisation w/ Arguments"
     },
     "Int Function": {
-        "prefix": "fi",
+        "prefix": "!fi",
         "body": [
             "int ${1:function_name}(${2:/*arguments*/}){",
             "",
@@ -54,7 +54,7 @@
         "description": "Int Function"
     },
     "Int Point Function": {
-        "prefix": "fip",
+        "prefix": "!fip",
         "body": [
             "int *${1:function_name}(${2://arguments}){",
             "",
@@ -66,7 +66,7 @@
         "description": "Int Point Function"
     },
     "Double Function": {
-        "prefix": "fd",
+        "prefix": "!fd",
         "body": [
             "double ${1:function_name}(${2:/*arguments*/}){",
             "",
@@ -78,7 +78,7 @@
         "description": "Double Function"
     },
     "Double Point Function": {
-        "prefix": "fdp",
+        "prefix": "!fdp",
         "body": [
             "double *${1:function_name}(${2:/*arguments*/}){",
             "",
@@ -90,7 +90,7 @@
         "description": "Double Function"
     },
     "Float Function": {
-        "prefix": "ff",
+        "prefix": "!ff",
         "body": [
             "float ${1:function_name}(${2:/*arguments*/}){",
             "",
@@ -102,7 +102,7 @@
         "description": "Float Function"
     },
     "Float Point Function": {
-        "prefix": "ffp",
+        "prefix": "!ffp",
         "body": [
             "float *${1:function_name}(${2:/*arguments*/}){",
             "",
@@ -114,7 +114,7 @@
         "description": "Float Function"
     },
     "General Function": {
-        "prefix": "fg",
+        "prefix": "!fg",
         "body": [
             "$1 ${2:function_name}(${3:/*arguments*/}){",
             "",
@@ -126,7 +126,7 @@
         "description": "General Function"
     },
     "General Point Function": {
-        "prefix": "fgp",
+        "prefix": "!fgp",
         "body": [
             "$1 ${2:function_name}(${3:/*arguments*/}){",
             "",
@@ -138,7 +138,7 @@
         "description": "General Function"
     },
     "Char Function": {
-        "prefix": "fc",
+        "prefix": "!fc",
         "body": [
             "char ${1:function_name}(${2://arguments}){",
             "",
@@ -147,10 +147,10 @@
             "  return ${4;'\\0'};",
             "}"
         ],
-        "description": "char Function"
+        "description": "Char Function"
     },
-    "String Function": {
-        "prefix": "fstr",
+    "Char Point Function": {
+        "prefix": "!fcp",
         "body": [
             "char *${1:function_name}(${2://arguments}){",
             "",
@@ -159,10 +159,10 @@
             "  return ${4;NULL};",
             "}"
         ],
-        "description": "String Function"
+        "description": "Char Point Function"
     },
     "Void Function": {
-        "prefix": "fv",
+        "prefix": "!fv",
         "body": [
             "void ${1:function_name}(${2://arguments}){",
             "",
@@ -173,7 +173,7 @@
         "description": "Void Function"
     },
     "Linked List Structure": {
-        "prefix": "ll",
+        "prefix": "!ll",
         "body": [
             "typedef struct ${1:l_list}{",
             "  $2",
@@ -184,7 +184,7 @@
         "description": "Linked List Structure"
     },
     "Append to Linked List ": {
-        "prefix": "all",
+        "prefix": "!all",
         "body": [
             "void apend_elem_llsit(${1:L_LIST} list, ${1:L_LIST} elem){",
             "  if (list==NULL)list=elem;",
@@ -198,7 +198,7 @@
         "description": "Append to Linked List "
     },
     "Insert to Linked List Index": {
-        "prefix": "ill",
+        "prefix": "!ill",
         "body": [
             "void insert_at_index_llist(${1:L_LIST} list,${1:L_LIST} elem, int pos){",
             "  ${1:L_LIST} pt = list;",
@@ -221,7 +221,7 @@
         "description": "Insert to Linked List Index"
     },
     "Remove to Linked List Index": {
-        "prefix": "rll",
+        "prefix": "!rll",
         "body": [
             "void remove_index_from_llist(${1:L_LIST} list, int pos){",
             "  if (list!=NULL){",
@@ -241,7 +241,7 @@
         "description": "Remove to Linked List Index"
     },
     "Free Linked List ": {
-        "prefix": "fll",
+        "prefix": "!fll",
         "body": [
             "void free_llist(${1:L_LIST} list)",
             "{",
@@ -256,7 +256,7 @@
         "description": "Free Linked List "
     },
     "Create Linked List Element": {
-        "prefix": "cll",
+        "prefix": "!cll",
         "body": [
             "${1:L_LIST} create_elem($2){",
             "",
@@ -268,7 +268,7 @@
         "description": "Create Linked List Element"
     },
     "Print Linked List ": {
-        "prefix": "pll",
+        "prefix": "!pll",
         "body": [
             "void print_llist(${1:L_LIST} list)",
             "{",
@@ -284,7 +284,7 @@
         "description": "Print Linked List "
     },
     "Completed Linked List w/ Functions": {
-        "prefix": "cll",
+        "prefix": "!cll",
         "body": [
             "typedef struct ${1:l_list}{",
             "  $2",
@@ -351,7 +351,7 @@
         "description": "Completed Linked List w/ Functions"
     },
     "Quick Sort Algorithm": {
-        "prefix": "qsort",
+        "prefix": "!qsort",
         "body": [
             "void swap(int* a, int* b){",
             "  int t = *a;",
@@ -383,7 +383,7 @@
         "description": "Quick Sort Algorithm"
     },
     "Insertion Sort Algorithm": {
-        "prefix": "isort",
+        "prefix": "!isort",
         "body": [
             "#include <math.h>",
             "",
@@ -404,7 +404,7 @@
         "description": "Insertion Sort Algorithm"
     },
     "Merge Sort Algorithm": {
-        "prefix": "msort",
+        "prefix": "!msort",
         "body": [
             "void merge(int arr[], int l, int m, int r){",
             "    int i, j, k;",
@@ -453,7 +453,7 @@
         "description": "Merge Sort Algorithm"
     },
     "Bubble Sort Algorithm": {
-        "prefix": "bsort",
+        "prefix": "!bsort",
         "body": [
             "void swap(int *xp, int *yp){",
             "    int temp = *xp;",
@@ -472,7 +472,7 @@
         "description": "Bubble Sort Algorithm"
     },
     "File Open": {
-        "prefix": "openf",
+        "prefix": "!openf",
         "body": [
             "FILE *${1:f_name} = fopen(${2:\"path\\to\\file\"},${3:\"w\"});",
             "",
@@ -488,7 +488,7 @@
         "description": "File Open"
     },
     "Get File Lines": {
-        "prefix": "getflines",
+        "prefix": "!getflines",
         "body": [
             "char  row[${4:255}];/*buffer_size*/",
             "FILE  *${1:f_name} = fopen( ${2:\"path\\to\\file\"}, ${3:\"r\"} );",
@@ -505,7 +505,7 @@
         "description": "Get File Lines"
     },
     "Print String": {
-        "prefix": "prints",
+        "prefix": "!prints",
         "body": [
             "printf(\"%s\\n\",$1);",
             ""
@@ -513,7 +513,7 @@
         "description": "Print String"
     },
     "Print Int": {
-        "prefix": "printi",
+        "prefix": "!printi",
         "body": [
             "printf(\"%d\\n\",$1);",
             ""
@@ -521,7 +521,7 @@
         "description": "Print Int"
     },
     "Print Double": {
-        "prefix": "printd",
+        "prefix": "!printd",
         "body": [
             "printf(\"%${2:.2}f\\n\",$1);",
             ""
@@ -529,7 +529,7 @@
         "description": "Print Double"
     },
     "Print Array": {
-        "prefix": "printa",
+        "prefix": "!printa",
         "body": [
             "${1:int} ${2:print_array}(${1:int} arr[], int min, int max){",
             "  printf(\"[\");",
@@ -545,7 +545,7 @@
         "description": "Print Array"
     },
     "Binary Tree Struct": {
-        "prefix": "bt",
+        "prefix": "!bt",
         "body": [
             "struct ${1:t_node}",
             "{",
@@ -560,7 +560,7 @@
         "description": "Binary Tree Struct"
     },
     "New Binary Tree Node": {
-        "prefix": "nnodebt",
+        "prefix": "!nodebt",
         "body": [
             "${2:TNode} *newItem(${3:int} data)",
             "{",
@@ -575,7 +575,7 @@
         "description": "New Binary Tree Node"
     },
     "Insert Binary Tree Node": {
-        "prefix": "insbt",
+        "prefix": "!insbt",
         "body": [
             "${2:TNode} *insertTree(${2:TNode} *pn, ${3:int} data)",
             "{",
@@ -598,7 +598,7 @@
         "description": "Insert Binary Tree Node"
     },
     "Create Binary Tree": {
-        "prefix": "newbt",
+        "prefix": "!newbt",
         "body": [
             "${2:TNode} *createTree()",
             "{",
@@ -616,7 +616,7 @@
         "description": "Create Binary Tree"
     },
     "Pre Order Print Binary Tree": {
-        "prefix": "printprebt",
+        "prefix": "!printprebt",
         "body": [
             "void printPreorder(${2:TNode} *pn)",
             "{",
@@ -632,7 +632,7 @@
         "description": "Pre Order Print Binary Tree"
     },
     "Post Order Print Binary Tree": {
-        "prefix": "printposbt",
+        "prefix": "!printposbt",
         "body": [
             "void printPostorder(${2:TNode} *pn)",
             "{",
@@ -647,7 +647,7 @@
         "description": "Post Order Print Binary Tree"
     },
     "In Order Print Binary Tree": {
-        "prefix": "printiobt",
+        "prefix": "!printiobt",
         "body": [
             "void printInorder(${2:TNode} *pn)",
             "{",
@@ -663,7 +663,7 @@
         "description": "In Order Print Binary Tree"
     },
     "Get Binary Tree Size": {
-        "prefix": "sizebt",
+        "prefix": "!sizebt",
         "body": [
             "${3:int} size(${2:TNode} *pn)",
             "{",
@@ -677,7 +677,7 @@
         "description": "Get Binary Tree Size"
     },
     "Get Binary Tree Depth": {
-        "prefix": "depthbt",
+        "prefix": "!depthbt",
         "body": [
             "${3:int} depth(${2:TNode} *pn)",
             "{",
@@ -698,7 +698,7 @@
         "description": "Get Binary Tree Depth"
     },
     "Get Binary Tree Min Value": {
-        "prefix": "minbt",
+        "prefix": "!minbt",
         "body": [
             "${3:int} minVal(${2:TNode} *pn)",
             "{",
@@ -716,7 +716,7 @@
         "description": "Get Binary Tree Min Value"
     },
     "Get Binary Tree Max Value": {
-        "prefix": "maxbt",
+        "prefix": "!maxbt",
         "body": [
             "int maxVal(${2:TNode} *pn)",
             "{",
@@ -733,8 +733,21 @@
         ],
         "description": "Get Binary Tree Max Value"
     },
+    "Free Binary Tree": {
+        "prefix": "freebt",
+        "body": [
+            "void free_btree(${2:TNode} *pn){",
+            "  if(pn){",
+            "    free_btree(pn->right);",
+            "    free_btree(pn->left);",
+            "    free(pn);",
+            "  }",
+            "}"
+        ],
+        "description": "Free Binary Tree"
+    },
     "Complete Binary Tree w/ Functions": {
-        "prefix": "cbt",
+        "prefix": "!cbt",
         "body": [
             "struct ${1:t_node}",
             "{",
@@ -862,6 +875,14 @@
             "  }",
             "  else",
             "    return 0;",
+            "}",
+            "",
+            "void free_btree(${2:TNode} *pn){",
+            "  if(pn){",
+            "    free_btree(pn->right);",
+            "    free_btree(pn->left);",
+            "    free(pn);",
+            "  }",
             "}"
         ],
         "description": "Complete Binary Tree w/ Functions"

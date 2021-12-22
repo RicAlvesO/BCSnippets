@@ -1,65 +1,77 @@
-# bcs README
+# Better C Snippets
 
-This is the README for your extension "bcs". After writing up a brief description, we recommend including the following sections.
+BCS is a snippet extension that allows you to write code faster with the help of Shortcuts to usefull functions.
 
-## Features
+Current Version: v.0.0.1
 
-Describe specific features of your extension including screenshots of your extension in action. Image paths are relative to this README file.
+## Language Support
 
-For example if there is an image subfolder under your extension project workspace:
+- C
 
-\!\[feature X\]\(images/feature-x.png\)
+## Snippets
 
-> Tip: Many popular extensions utilize animations. This is an excellent way to show off your extension! We recommend short, focused animations that are easy to follow.
+Bellow is a list of all available snippets along with a small description.
 
-## Requirements
+## Basic Snippets
 
-If you have any requirements or dependencies, add a section describing those and how to install and configure them.
+|Prefix|Description|
+|------|-----------|
+|!init|Base initialisation of C code.|
+|!arginit|Initialisation of a C program that takes arguments from console.|
+|!fg|General Function.|
+|!fgp|General Pointer Funcion.|
+|!fi|Basic Int function.|
+|!fip|Basic Int* function.|
+|!fd|Basic Double function.|
+|!fdp|Basic Double* function.|
+|!ff|Basic Float function.|
+|!ffd|Basic Float* function.|
+|!fc|Basic Char function.|
+|!fcp|Basic Char* function.|
+|!fv|Basic Void function.|
+|!openf|Basic file opening.|
+|!getflines|Basic code to read a file line-by-line|
+|!printi|Basic print for Int values.|
+|!printd|Basic print for Double and Float values.|
+|!prints|Basic print for Strings.|
+|!printa|Basic function to print all elements from an Array.|
 
-## Extension Settings
+### Sorting Algorithms Snippets
 
-Include if your extension adds any VS Code settings through the `contributes.configuration` extension point.
+|Prefix|Description|
+|------|-----------|
+|!qsort|Quick Sort algorithm.|
+|!isort|Insertion Sort algorithm.|
+|!msort|Merg Sort algorithm.|
+|!bsort|Bubble Sort algorithm.|
 
-For example:
+### Linked List Snippets
 
-This extension contributes the following settings:
+|Prefix|Description|
+|------|-----------|
+|!ll|Basic Linked List structure.|
+|!all|Function to append a element to a Linked List.|
+|!ill|Function to insert a element to a given index in a Linked List.|
+|!rll|Function to remove a element at a given index in a Linked List.|
+|!cll|Function to create a Linked List.|
+|!pll|Print Linked List.|
+|!fll|Function to free memory from Linked List.|
+|!cll|Complete Linked List w/ functions.|
 
-* `myExtension.enable`: enable/disable this extension
-* `myExtension.thing`: set to `blah` to do something
+### Binary Tree Snippets
 
-## Known Issues
-
-Calling out known issues can help limit users opening duplicate issues against your extension.
-
-## Release Notes
-
-Users appreciate release notes as you update your extension.
-
-### 1.0.0
-
-Initial release of ...
-
-### 1.0.1
-
-Fixed issue #.
-
-### 1.1.0
-
-Added features X, Y, and Z.
-
------------------------------------------------------------------------------------------------------------
-
-## Working with Markdown
-
-**Note:** You can author your README using Visual Studio Code.  Here are some useful editor keyboard shortcuts:
-
-* Split the editor (`Cmd+\` on macOS or `Ctrl+\` on Windows and Linux)
-* Toggle preview (`Shift+CMD+V` on macOS or `Shift+Ctrl+V` on Windows and Linux)
-* Press `Ctrl+Space` (Windows, Linux) or `Cmd+Space` (macOS) to see a list of Markdown snippets
-
-### For more information
-
-* [Visual Studio Code's Markdown Support](http://code.visualstudio.com/docs/languages/markdown)
-* [Markdown Syntax Reference](https://help.github.com/articles/markdown-basics/)
-
-**Enjoy!**
+|Prefix|Description|
+|------|-----------|
+|!bt|Basic Binary Tree structure.|
+|!newbt|Function to create a new BTree.|
+|!nodebt|Function to create a new BTree Node.|
+|!insbt|Function to insert a node in a BTree.|
+|!printprebt|Print a BTree in Pre Order.|
+|!printposbt|Print a BTree in Post Order.|
+|!printiobt|Print a BTree In Order.|
+|!sizebt|Get the size of a BTree.|
+|!depthbt|Get the depth of a BTree.|
+|!minbt|Get the Min value of a BTree.|
+|!maxbt|Get the Max value of a BTree.|
+|!freebt|Function to free memory from BTree.|
+|!cbt|Complete BTree w/functions.|
