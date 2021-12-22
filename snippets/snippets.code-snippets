@@ -1,17 +1,869 @@
 {
     "Base Inicialization": {
-        "prefix": "bini",
+        "prefix": "init",
         "body": [
             "#include <stdlib.h>",
             "#include <stdio.h>",
+            "#include <string.h>",
+            "#include <unistd.h>",
             "",
             "int main(){",
             "  ",
             "  $1",
             "  ",
-            "  return 0;",
+            "  return EXIT_SUCCESS;",
             "}"
         ],
         "description": "Base Inicialization"
+    },
+    "Inicialization w/ Arguments": {
+        "prefix": "arginit",
+        "body": [
+            "#include <stdlib.h>",
+            "#include <stdio.h>",
+            "#include <string.h>",
+            "#include <unistd.h>",
+            "",
+            "int main(int argc,char *agrv[]){",
+            "  ",
+            "  if(argc<=${1:min_arguments}){",
+            "    printf(\"Too few arguments!\");",
+            "    return EXIT_FAILURE;",
+            "  }else{",
+            "    for(int i;i<argc;i++){",
+            "      //Parse Arguments",
+            "      $2",
+            "    }",
+            "  }",
+            "",
+            "  return EXIT_SUCCESS;",
+            "}"
+        ],
+        "description": "Inicialization w/ Arguments"
+    },
+    "Int Function": {
+        "prefix": "fi",
+        "body": [
+            "int ${1:function_name}(${2:/*arguments*/}){",
+            "",
+            "  $3",
+            "",
+            "  return ${4:0};",
+            "}"
+        ],
+        "description": "Int Function"
+    },
+    "Int Point Function": {
+        "prefix": "fip",
+        "body": [
+            "int *${1:function_name}(${2://arguments}){",
+            "",
+            "  $3",
+            "",
+            "  return ${4;NULL};",
+            "}"
+        ],
+        "description": "Int Point Function"
+    },
+    "Double Function": {
+        "prefix": "fd",
+        "body": [
+            "double ${1:function_name}(${2:/*arguments*/}){",
+            "",
+            "  $3;",
+            "",
+            "  return ${4:0};",
+            "}"
+        ],
+        "description": "Double Function"
+    },
+    "Double Point Function": {
+        "prefix": "fdp",
+        "body": [
+            "double *${1:function_name}(${2:/*arguments*/}){",
+            "",
+            "  $3;",
+            "",
+            "  return ${4:NULL};",
+            "}"
+        ],
+        "description": "Double Function"
+    },
+    "Float Function": {
+        "prefix": "ff",
+        "body": [
+            "float ${1:function_name}(${2:/*arguments*/}){",
+            "",
+            "  $3;",
+            "",
+            "  return ${4:0};",
+            "}"
+        ],
+        "description": "Float Function"
+    },
+    "Float Point Function": {
+        "prefix": "ffp",
+        "body": [
+            "float *${1:function_name}(${2:/*arguments*/}){",
+            "",
+            "  $3;",
+            "",
+            "  return ${4:NULL};",
+            "}"
+        ],
+        "description": "Float Function"
+    },
+    "General Function": {
+        "prefix": "fg",
+        "body": [
+            "$1 ${2:function_name}(${3:/*arguments*/}){",
+            "",
+            "  $4;",
+            "",
+            "  return $5;",
+            "}"
+        ],
+        "description": "General Function"
+    },
+    "General Point Function": {
+        "prefix": "fgp",
+        "body": [
+            "$1 ${2:function_name}(${3:/*arguments*/}){",
+            "",
+            "  $4;",
+            "",
+            "  return ${5:NULL};",
+            "}"
+        ],
+        "description": "General Function"
+    },
+    "Char Function": {
+        "prefix": "fc",
+        "body": [
+            "char ${1:function_name}(${2://arguments}){",
+            "",
+            "  $3",
+            "",
+            "  return ${4;'\\0'};",
+            "}"
+        ],
+        "description": "char Function"
+    },
+    "String Function": {
+        "prefix": "fstr",
+        "body": [
+            "char *${1:function_name}(${2://arguments}){",
+            "",
+            "  $3",
+            "",
+            "  return ${4;NULL};",
+            "}"
+        ],
+        "description": "String Function"
+    },
+    "Void Function": {
+        "prefix": "fv",
+        "body": [
+            "void ${1:function_name}(${2://arguments}){",
+            "",
+            "  $3",
+            "",
+            "}"
+        ],
+        "description": "Void Function"
+    },
+    "Linked List Structure": {
+        "prefix": "ll",
+        "body": [
+            "typedef struct ${1:l_list}{",
+            "  $2",
+            "  struct ${1:l_list} *next;",
+            "}*${3:L_LIST};",
+            ""
+        ],
+        "description": "Linked List Structure"
+    },
+    "Append to Linked List ": {
+        "prefix": "all",
+        "body": [
+            "void apend_elem_llsit(${1:L_LIST} list, ${1:L_LIST} elem){",
+            "  if (list==NULL)list=elem;",
+            "  else{",
+            "    ${1:L_LIST} pt = list;",
+            "    while(pt->next!=NULL)pt=pt->next;",
+            "    pt->next=elem;",
+            "  }",
+            "}"
+        ],
+        "description": "Append to Linked List "
+    },
+    "Insert to Linked List Index": {
+        "prefix": "ill",
+        "body": [
+            "void insert_at_index_llist(${1:L_LIST} list,${1:L_LIST} elem, int pos){",
+            "  ${1:L_LIST} pt = list;",
+            "  if(pos==0){",
+            "    list=elem;",
+            "    list->next=pt;",
+            "  }else if(list!=NULL){",
+            "    while(pos>1&&pt->next!=NULL){",
+            "      pos--;",
+            "      pt=pt->next;",
+            "    }",
+            "    if(pos==1){",
+            "      elem->next=pt->next;",
+            "      pt->next=elem;",
+            "    }else{printf(\"Index out of bounds!\\n\");}",
+            "  }",
+            "}",
+            ""
+        ],
+        "description": "Insert to Linked List Index"
+    },
+    "Remove to Linked List Index": {
+        "prefix": "rll",
+        "body": [
+            "void remove_index_from_llist(${1:L_LIST} list, int pos){",
+            "  if (list!=NULL){",
+            "    ${1:L_LIST} pt=list;",
+            "    while (pos>1 && pt->next!=NULL){",
+            "      pos--;",
+            "      pt=pt->next;",
+            "    }",
+            "    if(pos==1){",
+            "      ${1:L_LIST} temp = pt->next;",
+            "      pt->next = temp->next;",
+            "    }else{printf(\"Index out of bounds!\\n\");}",
+            "  }",
+            "}",
+            ""
+        ],
+        "description": "Remove to Linked List Index"
+    },
+    "Free Linked List ": {
+        "prefix": "fll",
+        "body": [
+            "void free_llist(${1:L_LIST} list)",
+            "{",
+            "  while (list != NULL)",
+            "  {",
+            "    ${1:L_LIST} temp=list;",
+            "    list=list->next;",
+            "    free(temp);",
+            "  }",
+            "}"
+        ],
+        "description": "Free Linked List "
+    },
+    "Create Linked List Element": {
+        "prefix": "cll",
+        "body": [
+            "${1:L_LIST} create_elem($2){",
+            "",
+            "  $3",
+            "",
+            "  return NULL;",
+            "}"
+        ],
+        "description": "Create Linked List Element"
+    },
+    "Print Linked List ": {
+        "prefix": "pll",
+        "body": [
+            "void print_llist(${1:L_LIST} list)",
+            "{",
+            "  ${1:L_LIST} pt=list;",
+            "  while (pt != NULL)",
+            "  {",
+            "    $2",
+            "    pt=pt->next;",
+            "  }",
+            "}",
+            ""
+        ],
+        "description": "Print Linked List "
+    },
+    "Completed Linked List w/ Functions": {
+        "prefix": "cll",
+        "body": [
+            "typedef struct ${1:l_list}{",
+            "  $2",
+            "  struct ${1:l_list} *next;",
+            "}*${3:L_LIST};",
+            "",
+            "void apend_elem_llsit(${3:L_LIST} list, ${3:L_LIST} elem){",
+            "  if (list==NULL)list=elem;",
+            "  else{",
+            "    ${3:L_LIST} pt = list;",
+            "    while(pt->next!=NULL)pt=pt->next;",
+            "    pt->next=elem;",
+            "  }",
+            "}",
+            "",
+            "void insert_at_index_llist(${3:L_LIST} list,${3:L_LIST} elem, int pos){",
+            "  ${3:L_LIST} pt = list;",
+            "  if(pos==0){",
+            "    list=elem;",
+            "    list->next=pt;",
+            "  }else if(list!=NULL){",
+            "    while(pos>1&&pt->next!=NULL){",
+            "      pos--;",
+            "      pt=pt->next;",
+            "    }",
+            "    if(pos==1){",
+            "      elem->next=pt->next;",
+            "      pt->next=elem;",
+            "    }else{printf(\"Index out of bounds!\\n\");}",
+            "  }",
+            "}",
+            "",
+            "void remove_index_from_llist(${3:L_LIST} list, int pos){",
+            "  if (list!=NULL){",
+            "    ${3:L_LIST} pt=list;",
+            "    while (pos>1 && pt->next!=NULL){",
+            "      pos--;",
+            "      pt=pt->next;",
+            "    }",
+            "    if(pos==1){",
+            "      ${3:L_LIST} temp = pt->next;",
+            "      pt->next = temp->next;",
+            "    }else{printf(\"Index out of bounds!\\n\");}",
+            "  }",
+            "}",
+            "",
+            "void free_llist(${3:L_LIST} list)",
+            "{",
+            "  while (list != NULL)",
+            "  {",
+            "    ${3:L_LIST} temp=list;",
+            "    list=list->next;",
+            "    free(temp);",
+            "  }",
+            "}",
+            "",
+            "${3:L_LIST} create_elem($4){",
+            "",
+            "  $5",
+            "",
+            "  return NULL;",
+            "}"
+        ],
+        "description": "Completed Linked List w/ Functions"
+    },
+    "Quick Sort Algorithm": {
+        "prefix": "qsort",
+        "body": [
+            "void swap(int* a, int* b){",
+            "  int t = *a;",
+            "  *a = *b;",
+            "  *b = t;",
+            "}",
+            "",
+            "int partition (int arr[], int low, int high){",
+            "  int pivot = arr[high];",
+            "  int i = (low - 1);",
+            "  for (int j = low; j <= high- 1; j++){",
+            "    if (arr[j] <= pivot){",
+            "      i++;",
+            "      swap(&arr[i], &arr[j]);",
+            "    }",
+            "  }",
+            "  swap(&arr[i + 1], &arr[high]);",
+            "  return (i + 1);",
+            "}",
+            "",
+            "void quickSort(int arr[], int low, int high){",
+            "  if (low < high){",
+            "    int pi = partition(arr, low, high);",
+            "    quickSort(arr, low, pi - 1);",
+            "    quickSort(arr, pi + 1, high);",
+            "  }",
+            "}"
+        ],
+        "description": "Quick Sort Algorithm"
+    },
+    "Insertion Sort Algorithm": {
+        "prefix": "isort",
+        "body": [
+            "#include <math.h>",
+            "",
+            "void insertionSort(int arr[], int n)",
+            "{",
+            "    int i, key, j;",
+            "    for (i = 1; i < n; i++) {",
+            "        key = arr[i];",
+            "        j = i - 1;",
+            "        while (j >= 0 && arr[j] > key) {",
+            "            arr[j + 1] = arr[j];",
+            "            j = j - 1;",
+            "        }",
+            "        arr[j + 1] = key;",
+            "    }",
+            "}"
+        ],
+        "description": "Insertion Sort Algorithm"
+    },
+    "Merge Sort Algorithm": {
+        "prefix": "msort",
+        "body": [
+            "void merge(int arr[], int l, int m, int r){",
+            "    int i, j, k;",
+            "    int n1 = m - l + 1;",
+            "    int n2 = r - m;",
+            "    int L[n1], R[n2];",
+            "    for (i = 0; i < n1; i++)",
+            "        L[i] = arr[l + i];",
+            "    for (j = 0; j < n2; j++)",
+            "        R[j] = arr[m + 1 + j];",
+            "    i = 0; ",
+            "    j = 0; ",
+            "    k = l; ",
+            "    while (i < n1 && j < n2) {",
+            "        if (L[i] <= R[j]) {",
+            "            arr[k] = L[i];",
+            "            i++;",
+            "        }",
+            "        else {",
+            "            arr[k] = R[j];",
+            "            j++;",
+            "        }",
+            "        k++;",
+            "    }",
+            "    while (i < n1) {",
+            "        arr[k] = L[i];",
+            "        i++;",
+            "        k++;",
+            "    }",
+            "    while (j < n2) {",
+            "        arr[k] = R[j];",
+            "        j++;",
+            "        k++;",
+            "    }",
+            "}",
+            "",
+            "void mergeSort(int arr[], int l, int r){",
+            "    if (l < r) {",
+            "        int m = l + (r - l) / 2;",
+            "        mergeSort(arr, l, m);",
+            "        mergeSort(arr, m + 1, r);  ",
+            "        merge(arr, l, m, r);",
+            "    }",
+            "}"
+        ],
+        "description": "Merge Sort Algorithm"
+    },
+    "Bubble Sort Algorithm": {
+        "prefix": "bsort",
+        "body": [
+            "void swap(int *xp, int *yp){",
+            "    int temp = *xp;",
+            "    *xp = *yp;",
+            "    *yp = temp;",
+            "}",
+            "",
+            "void bubbleSort(int arr[], int n){",
+            "   int i, j;",
+            "   for (i = 0; i < n-1; i++)     ",
+            "       for (j = 0; j < n-i-1; j++)",
+            "           if (arr[j] > arr[j+1])",
+            "              swap(&arr[j], &arr[j+1]);",
+            "}"
+        ],
+        "description": "Bubble Sort Algorithm"
+    },
+    "File Open": {
+        "prefix": "openf",
+        "body": [
+            "FILE *${1:f_name} = fopen(${2:\"path\\to\\file\"},${3:\"w\"});",
+            "",
+            "if ( ${1:f_name} == NULL ) {",
+            "  pritnf(\"Error opening file!\");",
+            "  //Error Handling...",
+            "}",
+            "",
+            "$4",
+            "",
+            "fclose(${1:f_name});"
+        ],
+        "description": "File Open"
+    },
+    "Get File Lines": {
+        "prefix": "getflines",
+        "body": [
+            "char  row[${4:255}];/*buffer_size*/",
+            "FILE  *${1:f_name} = fopen( ${2:\"path\\to\\file\"}, ${3:\"r\"} );",
+            "if ( ${1:f_name} == NULL ) {",
+            "  pritnf(\"Error opening file!\");",
+            "  /*Error Handling...*/",
+            "}",
+            "while ( fgets( row, sizeof( row ), fp ) != NULL ) {",
+            "  /*Parse line*/",
+            "  $5",
+            "}",
+            "fclose( ${1:f_name} );"
+        ],
+        "description": "Get File Lines"
+    },
+    "Print String": {
+        "prefix": "prints",
+        "body": [
+            "printf(\"%s\\n\",$1);",
+            ""
+        ],
+        "description": "Print String"
+    },
+    "Print Int": {
+        "prefix": "printi",
+        "body": [
+            "printf(\"%d\\n\",$1);",
+            ""
+        ],
+        "description": "Print Int"
+    },
+    "Print Double": {
+        "prefix": "printd",
+        "body": [
+            "printf(\"%${2:.2}f\\n\",$1);",
+            ""
+        ],
+        "description": "Print Double"
+    },
+    "Print Array": {
+        "prefix": "printa",
+        "body": [
+            "${1:int} ${2:print_array}(${1:int} arr[], int min, int max){",
+            "  printf(\"[\");",
+            "  while(min<max){",
+            "    printf(\"%{3:d}\",arr[min]);",
+            "    min++;",
+            "    if(min!=max) printf(\",\");",
+            "  }",
+            "  printf(\"]\\n\");",
+            "}",
+            ""
+        ],
+        "description": "Print Array"
+    },
+    "Binary Tree Struct": {
+        "prefix": "bt",
+        "body": [
+            "struct ${1:t_node}",
+            "{",
+            "  ${3:int} data;",
+            "  struct ${1:t_node} *left;",
+            "  struct ${1:t_node} *right;",
+            "};",
+            "",
+            "typedef struct ${1:t_node} ${2:TNode};",
+            ""
+        ],
+        "description": "Binary Tree Struct"
+    },
+    "New Binary Tree Node": {
+        "prefix": "nnodebt",
+        "body": [
+            "${2:TNode} *newItem(${3:int} data)",
+            "{",
+            "  ${2:TNode} *pn = (${2:TNode} *)malloc(sizeof(${2:TNode}));",
+            "  pn->data = data;",
+            "  pn->left = NULL;",
+            "  pn->right = NULL;",
+            "",
+            "  return pn;",
+            "}"
+        ],
+        "description": "New Binary Tree Node"
+    },
+    "Insert Binary Tree Node": {
+        "prefix": "insbt",
+        "body": [
+            "${2:TNode} *insertTree(${2:TNode} *pn, ${3:int} data)",
+            "{",
+            "  if (!pn)",
+            "    return newItem(data);",
+            "",
+            "  else",
+            "  {",
+            "    if (data <= pn->data)",
+            "      pn->left = insertTree(pn->left, data);",
+            "",
+            "    else",
+            "      pn->right = insertTree(pn->right, data);",
+            "  }",
+            "",
+            "  return pn;",
+            "}",
+            ""
+        ],
+        "description": "Insert Binary Tree Node"
+    },
+    "Create Binary Tree": {
+        "prefix": "newbt",
+        "body": [
+            "${2:TNode} *createTree()",
+            "{",
+            "  ${2:TNode} *pr = insertTree(0, 4);",
+            "  insertTree(pr, 1);",
+            "  insertTree(pr, 2);",
+            "  insertTree(pr, 3);",
+            "  insertTree(pr, 5);",
+            "  insertTree(pr, 6);",
+            "",
+            "  return pr;",
+            "}",
+            ""
+        ],
+        "description": "Create Binary Tree"
+    },
+    "Pre Order Print Binary Tree": {
+        "prefix": "printprebt",
+        "body": [
+            "void printPreorder(${2:TNode} *pn)",
+            "{",
+            "  if (pn)",
+            "  {",
+            "    printf(\"preorder = %${4:d}\\n\", pn->data);",
+            "    printPreorder(pn->left);",
+            "    printPreorder(pn->right);",
+            "  }",
+            "}",
+            ""
+        ],
+        "description": "Pre Order Print Binary Tree"
+    },
+    "Post Order Print Binary Tree": {
+        "prefix": "printposbt",
+        "body": [
+            "void printPostorder(${2:TNode} *pn)",
+            "{",
+            "  if (pn)",
+            "  {",
+            "    printPostorder(pn->left);",
+            "    printPostorder(pn->right);",
+            "    printf(\"postorder = %${4:d}\\n\", pn->data);",
+            "  }",
+            "}"
+        ],
+        "description": "Post Order Print Binary Tree"
+    },
+    "In Order Print Binary Tree": {
+        "prefix": "printiobt",
+        "body": [
+            "void printInorder(${2:TNode} *pn)",
+            "{",
+            "  if (pn)",
+            "  {",
+            "    printInorder(pn->left);",
+            "    printf(\"inorder = %${4:d}\\n\", pn->data);",
+            "    printInorder(pn->right);",
+            "  }",
+            "}",
+            ""
+        ],
+        "description": "In Order Print Binary Tree"
+    },
+    "Get Binary Tree Size": {
+        "prefix": "sizebt",
+        "body": [
+            "${3:int} size(${2:TNode} *pn)",
+            "{",
+            "  if (pn)",
+            "    return 1 + size(pn->left) + size(pn->right);",
+            "",
+            "  else",
+            "    return 0;",
+            "}"
+        ],
+        "description": "Get Binary Tree Size"
+    },
+    "Get Binary Tree Depth": {
+        "prefix": "depthbt",
+        "body": [
+            "${3:int} depth(${2:TNode} *pn)",
+            "{",
+            "  if (pn)",
+            "  {",
+            "    ${3:int} ld = depth(pn->left);",
+            "    ${3:int} rd = depth(pn->right);",
+            "",
+            "    if (ld > rd)",
+            "      return ld + 1;",
+            "    else",
+            "      return rd + 1;",
+            "  }",
+            "  else",
+            "    return 0;",
+            "}"
+        ],
+        "description": "Get Binary Tree Depth"
+    },
+    "Get Binary Tree Min Value": {
+        "prefix": "minbt",
+        "body": [
+            "${3:int} minVal(${2:TNode} *pn)",
+            "{",
+            "  if (pn)",
+            "  {",
+            "    while (pn->left)",
+            "      pn = pn->left;",
+            "",
+            "    return pn->data;",
+            "  }",
+            "  else",
+            "    return 0;",
+            "}"
+        ],
+        "description": "Get Binary Tree Min Value"
+    },
+    "Get Binary Tree Max Value": {
+        "prefix": "maxbt",
+        "body": [
+            "int maxVal(${2:TNode} *pn)",
+            "{",
+            "  if (pn)",
+            "  {",
+            "    while (pn->right)",
+            "      pn = pn->right;",
+            "",
+            "    return pn->data;",
+            "  }",
+            "  else",
+            "    return 0;",
+            "}"
+        ],
+        "description": "Get Binary Tree Max Value"
+    },
+    "Complete Binary Tree w/ Functions": {
+        "prefix": "cbt",
+        "body": [
+            "struct ${1:t_node}",
+            "{",
+            "  ${3:int} data;",
+            "  struct ${1:t_node} *left;",
+            "  struct ${1:t_node} *right;",
+            "};",
+            "",
+            "typedef struct ${1:t_node} ${2:TNode};",
+            "",
+            "${2:TNode} *newItem(${3:int} data)",
+            "{",
+            "  ${2:TNode} *pn = (${2:TNode} *)malloc(sizeof(${2:TNode}));",
+            "  pn->data = data;",
+            "  pn->left = NULL;",
+            "  pn->right = NULL;",
+            "",
+            "  return pn;",
+            "}",
+            "${2:TNode} *insertTree(${2:TNode} *pn, ${3:int} data)",
+            "{",
+            "  if (!pn)",
+            "    return newItem(data);",
+            "",
+            "  else",
+            "  {",
+            "    if (data <= pn->data)",
+            "      pn->left = insertTree(pn->left, data);",
+            "",
+            "    else",
+            "      pn->right = insertTree(pn->right, data);",
+            "  }",
+            "",
+            "  return pn;",
+            "}",
+            "",
+            "${2:TNode} *createTree()",
+            "{",
+            "  ${2:TNode} *pr = insertTree(0, 4);",
+            "  insertTree(pr, 1);",
+            "  insertTree(pr, 2);",
+            "  insertTree(pr, 3);",
+            "  insertTree(pr, 5);",
+            "  insertTree(pr, 6);",
+            "",
+            "  return pr;",
+            "}",
+            "",
+            "void printPreorder(${2:TNode} *pn)",
+            "{",
+            "  if (pn)",
+            "  {",
+            "    printf(\"preorder = %${4:d}\\n\", pn->data);",
+            "    printPreorder(pn->left);",
+            "    printPreorder(pn->right);",
+            "  }",
+            "}",
+            "",
+            "void printPostorder(${2:TNode} *pn)",
+            "{",
+            "  if (pn)",
+            "  {",
+            "    printPostorder(pn->left);",
+            "    printPostorder(pn->right);",
+            "    printf(\"postorder = %${4:d}\\n\", pn->data);",
+            "  }",
+            "}",
+            "",
+            "void printInorder(${2:TNode} *pn)",
+            "{",
+            "  if (pn)",
+            "  {",
+            "    printInorder(pn->left);",
+            "    printf(\"inorder = %${4:d}\\n\", pn->data);",
+            "    printInorder(pn->right);",
+            "  }",
+            "}",
+            "",
+            "${3:int} size(${2:TNode} *pn)",
+            "{",
+            "  if (pn)",
+            "    return 1 + size(pn->left) + size(pn->right);",
+            "",
+            "  else",
+            "    return 0;",
+            "}",
+            "",
+            "${3:int} depth(${2:TNode} *pn)",
+            "{",
+            "  if (pn)",
+            "  {",
+            "    ${3:int} ld = depth(pn->left);",
+            "    ${3:int} rd = depth(pn->right);",
+            "",
+            "    if (ld > rd)",
+            "      return ld + 1;",
+            "    else",
+            "      return rd + 1;",
+            "  }",
+            "  else",
+            "    return 0;",
+            "}",
+            "",
+            "${3:int} minVal(${2:TNode} *pn)",
+            "{",
+            "  if (pn)",
+            "  {",
+            "    while (pn->left)",
+            "      pn = pn->left;",
+            "",
+            "    return pn->data;",
+            "  }",
+            "  else",
+            "    return 0;",
+            "}",
+            "",
+            "${3:int} maxVal(${2:TNode} *pn)",
+            "{",
+            "  if (pn)",
+            "  {",
+            "    while (pn->right)",
+            "      pn = pn->right;",
+            "",
+            "    return pn->data;",
+            "  }",
+            "  else",
+            "    return 0;",
+            "}"
+        ],
+        "description": "Complete Binary Tree w/ Functions"
     }
 }
