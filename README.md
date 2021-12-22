@@ -12,7 +12,7 @@ Current Version: v.0.0.1
 
 Bellow is a list of all available snippets along with a small description.
 
-## Basic Snippets
+### Basic Snippets
 
 |Prefix|Description|
 |------|-----------|
